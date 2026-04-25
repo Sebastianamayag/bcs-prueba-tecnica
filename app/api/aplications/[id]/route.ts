@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server'
 export async function GET(request: Request, { params }: { params: { id: string } }) {
-    const { id } = params
-    const { searchParams } = new URL(request.url)
-    const scenario = searchParams.get('scenario')
+    const { id } = await params;
+    const { searchParams } = new URL(request.url);
+    const scenario = searchParams.get('scenario');
 
     if (scenario === 'success' && id) {
         return NextResponse.json({
@@ -11,7 +11,7 @@ export async function GET(request: Request, { params }: { params: { id: string }
             data: {
                 numeroAfiliacion: id,
             }
-        }, { status: 200 })
+        }, { status: 200 });
     }
 
     if (scenario === 'rejected' || !id) {
@@ -19,14 +19,14 @@ export async function GET(request: Request, { params }: { params: { id: string }
             status: 404,
             error: 'Not Found',
             message: 'No se encontró la solicitud',
-        }, { status: 404 })
+        }, { status: 404 });
     }
 
     return NextResponse.json({
       status: 500,
       error: 'Internal Server Error',
       message: 'Ocurrió un error inesperado, intenta de nuevo más tarde',
-    }, { status: 500 })
+    }, { status: 500 });
 }
 
 export async function PATCH(request: Request) {
@@ -40,7 +40,7 @@ export async function PATCH(request: Request) {
                 numero_afiliacion,
                 updatedAt: new Date().toISOString(),
             }
-        }, { status: 200 })
+        }, { status: 200 });
     }
 
     if (scenario === 'rejected' || !numero_afiliacion || !numero_afiliacion) {
@@ -48,12 +48,12 @@ export async function PATCH(request: Request) {
             status: 404,
             error: 'Not Found',
             message: 'No se encontró la solicitud',
-        }, { status: 404 })
+        }, { status: 404 });
     }
 
     return NextResponse.json({
       status: 500,
       error: 'Internal Server Error',
       message: 'Ocurrió un error inesperado, intenta de nuevo más tarde',
-    }, { status: 500 })
+    }, { status: 500 });
 }
