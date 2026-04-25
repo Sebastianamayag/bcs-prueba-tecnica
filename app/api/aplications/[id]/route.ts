@@ -1,4 +1,6 @@
 import { NextResponse } from 'next/server'
+import { APLICATIONS } from '../data/aplication';
+import { aplication } from '../type/aplication.type';
 export async function GET(request: Request, { params }: { params: Promise<{ id: string; }>; }) {
     const { id } = await params;
     const { searchParams } = new URL(request.url);
@@ -8,9 +10,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ id: 
         return NextResponse.json({
             status: 200,
             message: 'Solicitud encontrada',
-            data: {
-                numeroAfiliacion: id,
-            }
+            data: APLICATIONS.find((aplication: aplication) => aplication.numero_afiliacion === id),
         }, { status: 200 });
     }
 

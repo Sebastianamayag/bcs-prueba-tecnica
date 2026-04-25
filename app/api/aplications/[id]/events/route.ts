@@ -10,9 +10,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ id: 
         return NextResponse.json({
             status: 200,
             message: 'Solicitud encontrada',
-            data: {
-                events: EVENTS,
-            }
+            data: EVENTS
         }, { status: 200 });
     }
 

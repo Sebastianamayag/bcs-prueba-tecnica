@@ -1,7 +1,5 @@
-import React from 'react'
-import { RequiresSection } from './components/RequiresSection'
-import { WorksSection } from './components/WorksSection'
-import { HeroSection } from './components/HeroSection'
+import { HeroSection, RequiresSection, WorksSection } from "./components"
+
 
 export const Home = () => {
   return (

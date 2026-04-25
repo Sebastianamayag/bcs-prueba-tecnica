@@ -33,7 +33,6 @@ export async function POST(request: Request) {
 export async function GET(request: Request) {
     const { searchParams } = new URL(request.url)
     const scenario = searchParams.get('scenario');
-    const status = searchParams.get('estado');
     const documentNumber = searchParams.get('numero_documento');
 
     if (scenario === 'success') {
@@ -41,11 +40,10 @@ export async function GET(request: Request) {
             status: 200,
             message: 'Solicitudes encontrada',
             data: APLICATIONS.filter((aplication: aplication) => {
-                const statusFilter = status ? aplication.estado === status : true;
                 const documentNumberFilter = documentNumber ? aplication.numero_documento === documentNumber: true;
-                return statusFilter && documentNumberFilter;
-            })
-        }, { status: 200 })
+                return  documentNumberFilter;
+            }),
+        }, { status: 200 });
     }
 
     if (scenario === 'rejected' ) {

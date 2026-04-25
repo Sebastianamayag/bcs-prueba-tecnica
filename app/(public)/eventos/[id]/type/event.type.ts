@@ -4,3 +4,9 @@ export type event = {
     description: string;
     id: string;
 }
+
+export type eventsResponse = {
+  data: event[];
+  message: string;
+  status: number;
+}

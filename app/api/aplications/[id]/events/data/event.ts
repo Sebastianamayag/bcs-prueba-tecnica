@@ -3,23 +3,27 @@ import { event } from "../type/event.type";
 
 export const EVENTS: event[] = [
   {
-    type: 'CREATED',
+    type: 'CREADO',
     date: '2026-04-24T10:00:00',
-    description: 'Solicitud creada'
+    description: 'Solicitud creada',
+    id: "0005"
   },
   {
-    type: 'UPDATED',
+    type: 'ACTUALIZADO',
     date: '2026-04-24T10:05:00',
-    description: 'Datos actualizados'
+    description: 'Datos actualizados',
+    id: "00080"
   },
   {
-    type: 'SIMULATED',
+    type: 'SIMULADO',
     date: '2026-04-24T10:06:00',
-    description: 'Simulación de oferta realizada'
+    description: 'Simulación de oferta realizada',
+    id: "000100"
   },
   {
-    type: 'REJECTED',
+    type: 'RECHAZADO',
     date: '2026-04-24T10:07:00',
-    description: 'Solicitud rechazada'
+    description: 'Solicitud rechazada',
+    id: "000101"
   }
 ]

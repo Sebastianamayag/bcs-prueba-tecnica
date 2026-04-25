@@ -25,7 +25,6 @@ describe('Test <Input /> component except error', () => {
     render(<Input data-testId={mockTestId} hasError={false} errorMessage='' label={mockLabel} id={mockId} />)
   })
   it('render input & not render error message',()=> {
-    screen.debug(undefined, Infinity);
     const label = screen.getByText(/primer nombre/i);
     const input = screen.getByTestId(mockTestId);
     const error = screen.queryByRole('alert');
