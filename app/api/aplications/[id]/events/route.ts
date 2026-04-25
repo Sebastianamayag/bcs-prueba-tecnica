@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { EVENTS } from './data/event';
 
-export async function GET(request: Request, { params }: { params: { id: string } }) {
+export async function GET(request: Request, { params }: { params: Promise<{ id: string; }>; }) {
     const { id } = await params;
     const { searchParams } = new URL(request.url);
     const scenario = searchParams.get('scenario');
