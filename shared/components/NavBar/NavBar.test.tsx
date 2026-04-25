@@ -1,3 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable react/display-name */
+
 import { render, screen, fireEvent } from '@testing-library/react'
 import { NavBar } from './NavBar'
 
