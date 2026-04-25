@@ -11,7 +11,7 @@ export const NavBar = () => {
   };
 
   return (
-    <header className="shadow-lg text-center  mb-0.5 flex flex-row items-start justify-between lg:justify-around px-20  ">
+    <header className="sticky bg-white top-0 left-0 w-full z-50 shadow-lg text-center  mb-0.5 flex flex-row items-start justify-between lg:justify-around px-20  ">
       <div className="flex items-center">
         
         <Link href="/home" data-testid="home_link" >
