@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import './globals.css'
+import { GlobalUIProvider } from "@/shared/context/GlobalUIContext";
 
 export const metadata: Metadata = {
   title: "Fundación Banco Caja Social",
@@ -16,7 +17,11 @@ export default function RootLayout({
     <html
       lang="es"
     >
-      <body>{children}</body>
+      <body>
+        <GlobalUIProvider>
+          {children}
+        </GlobalUIProvider>
+      </body>
     </html>
   );
 }
