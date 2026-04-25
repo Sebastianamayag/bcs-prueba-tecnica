@@ -1,7 +1,7 @@
 // WorksSection.test.tsx
 import { render, screen } from '@testing-library/react';
 import { WorksSection } from './WorksSection';
-import { STEPS } from '../types/work.type';
+import { STEPS } from '../data/works';
 
 jest.mock('lucide-react', () => ({
   FileText: (props: any) => <svg data-testid="icon" {...props} />,

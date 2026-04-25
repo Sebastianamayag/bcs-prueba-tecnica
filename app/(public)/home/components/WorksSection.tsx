@@ -1,5 +1,6 @@
-import { STEPS } from '../types/work.type';
-import { step } from '../data/works';
+import { STEPS } from "../data/works"
+import { step } from "../types/work.type"
+
 
 export const WorksSection = () => {
   return (
