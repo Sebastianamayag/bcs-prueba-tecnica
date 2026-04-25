@@ -1,5 +1,5 @@
 export const  Fetch = async <T>(url: string, options?: RequestInit): Promise<T> => {
-  const res = await fetch(url, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${url}`, {
     ...options,
     headers: {
       "Content-Type": "application/json",
