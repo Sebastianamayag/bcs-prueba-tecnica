@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react"
 import { Input } from './Input';
-import { ERROR_MESSAGES } from "@/shared/constants.ts/errorMessages";
+import { ERROR_MESSAGES } from "@/shared/constants/errorMessages";
 
 const mockLabel = 'Primer Nombre';
 const mockId = 'Primer Nombre'

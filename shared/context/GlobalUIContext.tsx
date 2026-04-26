@@ -16,24 +16,43 @@ export function GlobalUIProvider({ children }: providerProps) {
 
     return (
         <GlobalUi.Provider value={{ setIsLoading, setToastMessage }}>
-            {children}
-            <ToastContainer
-                position="top-left"
-                autoClose={3000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick={false}
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-            />
+            <div>
+                {children}
+                <ToastContainer
+                    position="top-left"
+                    autoClose={3000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick={false}
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+                />
 
-            <HashLoader size={20} loading={isLoading} />
+
+                {
+                    isLoading ?
+                        (
+                            <div className="fixed inset-0 flex items-center justify-center bg-black/20 z-50">
+                                <HashLoader size={40} loading={isLoading} />
+                            </div>
+                        ) : null
+                }
+
+            </div>
 
         </GlobalUi.Provider>
     )
 };
 
-export const useGlobalUI = () => useContext(GlobalUi);
+export const useGlobalUI = () => {
+  const context = useContext(GlobalUi)
+
+  if (!context) {
+    throw new Error("useGlobalUI must be used within GlobalUIProvider")
+  }
+
+  return context
+}
