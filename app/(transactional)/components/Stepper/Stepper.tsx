@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const Stepper = ({ latsStepComppleted }: { latsStepComppleted: number }) => {
     return (
-        <div className="flex flex-col items-center mt-10">
+        <div className="flex flex-col items-center">
             <div className="flex items-center w-1/2">
                 {STEPS.map((step, index) => {
                     const isCompleted = latsStepComppleted >= index + 1;

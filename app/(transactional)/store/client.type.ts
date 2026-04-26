@@ -19,10 +19,10 @@ export interface ClientState {
   setLastStep: (step: number) => void;
   datosBasicos: basicData;
   datosFinancieros: financialData;
-  terminos: string;
+  terminos: boolean;
   setDatosBasicos: (data: Record<string, unknown>) => void;
   setDatosFinancieros: (data: Record<string, unknown>) => void;
-  setTerminos: (data: string) => void;
+  setTerminos: (data: boolean) => void;
   reset: () => void;
   numero_afiliacion: string;
   tipo_flujo: string;
