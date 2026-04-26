@@ -43,15 +43,11 @@ jobs:
     steps:
       - name: Get code
         uses: actions/checkout@v4
-      - name: Cache dependencies
-        id: cache
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
-      - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: npm ci
-      - name: Build website
-        id: build-website
-        run: npm run build
+      - name: Build Docker image
+        run: docker build -t bcs .
+      - name: Run container
+        run: docker run -d -p 3000:3000 --name bcs bcs
+      - name: Check app is running
+        run: curl -f http://localhost:3000 || exit 1
+      - name: Stop container
+        run: docker stop bcs

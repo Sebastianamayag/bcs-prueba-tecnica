@@ -18,7 +18,7 @@ describe('HeroSection', () => {
     const title = screen.getByText('Cuenta Ahorros Digital');
     const subTitle = screen.getByText(/Abre tu cuenta de ahorros/i);
     const img = screen.getByAltText('persona');
-    const link = screen.getByTestId('consulta_afiliacion');
+    const link = screen.getByTestId('afiliacion');
     expect(section).toBeInTheDocument();
     expect(title).toBeInTheDocument();
     expect(subTitle).toBeInTheDocument();
@@ -28,8 +28,8 @@ describe('HeroSection', () => {
   })
 
   it('Check link', () => {
-    const link = screen.getByTestId('consulta_afiliacion');
-    expect(link).toHaveAttribute('href', '/consulta-afiliacion');
+    const link = screen.getByTestId('afiliacion');
+    expect(link).toHaveAttribute('href', '/afiliacion');
   })
 
 
