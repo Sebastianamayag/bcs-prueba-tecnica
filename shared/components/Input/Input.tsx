@@ -2,7 +2,7 @@ import { InputProps } from './Input.type'
 
 export const Input = ({label, hasError, errorMessage, id, ...props}: InputProps) => {
   return (
-    <div className='flex flex-col'>
+    <div className={`flex flex-col w-full`}>
         <label htmlFor={id} className='text-primary font-semibold'>{label}</label>
         <input id={id} aria-invalid={hasError} {...props} className={`p-2 bg-white rounded-lg border-1 border-gray-100 ${props.className}`} />
         {

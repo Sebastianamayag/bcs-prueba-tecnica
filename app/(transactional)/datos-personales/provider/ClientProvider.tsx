@@ -22,6 +22,8 @@ export function FormContextProvider({ children }: ClientProviderProps) {
       ...financialData,
       terminos
     },
+    mode: 'onChange',
+    reValidateMode: 'onBlur'
   });
 
   return (

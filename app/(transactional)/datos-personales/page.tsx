@@ -5,7 +5,9 @@ import { FormContextProvider } from "./provider/ClientProvider";
 export default function Page() {
     return (
         <FormContextProvider>
-            <BasicDataForm />
+            <form>
+                <BasicDataForm />
+            </form>
         </FormContextProvider>
     );
 };
