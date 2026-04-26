@@ -21,7 +21,7 @@ export const Table = ({ data }: { data: consult[] }) => {
                 </div>
                 <div className=" bg-white px-5 py-3 border-1 border-gray-100 space-y-2">
                     {
-                        data.map((datos) => (
+                        data?.map((datos) => (
                             <div key={datos.numero_afiliacion} className="flex flex-row items-center border-b gap-1 border-gray-200 md:py-2" >
                                 <div className="flex flex-col flex-2 md:flex-4 md:flex-row">
                                     <p className={`font-regular text-sm md:text-center flex-1 md:text-[16px]`} >

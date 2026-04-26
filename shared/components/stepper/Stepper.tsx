@@ -11,11 +11,10 @@ export const Stepper = ({ latsStepComppleted }: { latsStepComppleted: number }) 
                 const Component = latsStepComppleted >= index + 1 ? Link : 'div';
                 return (
                     <div key={step.id} className="flex items-center flex-1">
-
                         <div className="flex flex-col items-center gap-1">
-                            <div className={`w-9 h-9 rounded-full flex items-center justify-center border-2 transition-all
-                ${isCompleted ? 'bg-primary border-primary' : 'border-gray-300 bg-white'}
-              `}>
+                            <div 
+                            className={`w-9 h-9 rounded-full flex items-center justify-center border-2 transition-all ${isCompleted ? 'bg-primary border-primary' : 'border-gray-300 bg-white'}`}
+                            >
                                 <Component href={step.href} data-testid={step.id} >
                                     {isCompleted
                                         ? <Check size={16} color="white" />
@@ -25,19 +24,17 @@ export const Stepper = ({ latsStepComppleted }: { latsStepComppleted: number }) 
                                     }
                                 </Component>
                             </div>
-                            <span className={`text-xs text-center whitespace-nowrap
-                ${isCompleted ? 'text-primary' : 'text-gray-400'}
-              `}>
+                            <span 
+                                className={`hidden md:block text-xs text-center whitespace-nowrap ${isCompleted ? 'text-primary' : 'text-gray-400'}`}>
                                 {step.label}
                             </span>
+                            <span className={`md:hidden text-xs text-center whitespace-nowrap ${isCompleted ? 'text-primary' : 'text-gray-400'}`}>
+                                {step.shortLabel}
+                            </span>
                         </div>
-
                         {!isLast && (
-                            <div className={`h-[2px] flex-1 mb-5 transition-all
-                ${isCompleted ? 'bg-primary' : 'bg-gray-200'}
-              `} />
+                            <div className={`h-[2px] flex-1 mb-5 transition-all ${isCompleted ? 'bg-primary' : 'bg-gray-200'}`} />
                         )}
-
                     </div>
                 )
             })}

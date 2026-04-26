@@ -1,5 +1,9 @@
-import { Stepper } from "@/shared/components/stepper/Stepper";
+import { Card } from "@/shared/components/Card/Card";
 
 export default function SimulationPage() {
-  return <Stepper latsStepComppleted={3} />
+  return (
+    <Card>
+      <p>hola</p>
+    </Card>
+  )
 }

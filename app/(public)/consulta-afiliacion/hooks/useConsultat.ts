@@ -9,7 +9,7 @@ export const useConsult = () => {
     const [documentNumber, setDocumentNumber] = useState<string>('');
     const { setIsLoading, setToastMessage } = useGlobalUI();
     const [error, setError] = useState<string | null>(null);
-    const [data, setData] = useState<consult[] | null>([]);
+    const [data, setData] = useState<consult[] | null>(null);
     const [filterData, setFilterData] = useState<consult[] | null>(null);
     const [status, setStatus] = useState<string>('');
     const handleConsult = async() => {

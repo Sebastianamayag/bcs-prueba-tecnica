@@ -44,8 +44,8 @@ jobs:
       - name: Get code
         uses: actions/checkout@v4
       - name: Build Docker image
-        run: docker build -t bcs .
+        run: docker build -t bcs-image .
       - name: Run container
-        run: docker run -d -p 3000:3000 --name bcs bcs
+        run: docker run -d -p 80:80 --name bcs bcs-image
       - name: Stop container
         run: docker stop bcs

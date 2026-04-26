@@ -12,12 +12,12 @@ describe('test <Stepper /> component', () => {
     render(<Stepper latsStepComppleted={0} />);
   })
   it('render all steps', () => {
-    const first = screen.getByText('Inicio');
+    const first = screen.getAllByText('Inicio');
     const second = screen.getByText('Información personal');
-    const third = screen.getByText('Verificación');
-    expect(first).toBeInTheDocument();
+    const third = screen.getAllByText('Verificación');
+    expect(first).toHaveLength(2);
     expect(second).toBeInTheDocument();
-    expect(third).toBeInTheDocument();
+    expect(third).toHaveLength(2);
   })
 
   it('shows stepper id', () => {
