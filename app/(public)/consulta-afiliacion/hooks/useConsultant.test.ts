@@ -1,11 +1,13 @@
 import { renderHook, act, waitFor } from '@testing-library/react';
 import { useConsult } from './useConsultat';
 import { Fetch } from '@/shared/fetch/Fetch';
-import { useGlobalUI } from '@/shared/context/GlobalUIContext';
+
 import { consult } from '../type/consult';
+import { useGlobalUI } from '@/shared/hooks/useGlobalUI';
 
 jest.mock('@/shared/fetch/Fetch');
 jest.mock('@/shared/context/GlobalUIContext');
+jest.mock('@/shared/hooks/useGlobalUI');
 
 const mockSetIsLoading = jest.fn();
 const mockSetToastMessage = jest.fn();

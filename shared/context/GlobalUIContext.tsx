@@ -5,7 +5,7 @@ import { globalUIContextType, providerProps, toastType } from "./type.context";
 import { toast, ToastContainer } from "react-toastify";
 import { HashLoader } from "react-spinners";
 
-const GlobalUi = createContext<globalUIContextType | null>(null);
+export const GlobalUi = createContext<globalUIContextType | null>(null);
 
 export function GlobalUIProvider({ children }: providerProps) {
     const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -46,13 +46,3 @@ export function GlobalUIProvider({ children }: providerProps) {
         </GlobalUi.Provider>
     )
 };
-
-export const useGlobalUI = () => {
-  const context = useContext(GlobalUi)
-
-  if (!context) {
-    throw new Error("useGlobalUI must be used within GlobalUIProvider")
-  }
-
-  return context
-}

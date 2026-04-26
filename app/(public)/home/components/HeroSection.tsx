@@ -9,7 +9,7 @@ export const HeroSection = () => {
         <div className='px-20 space-y-6 md:pl-20 md:pr-0'>
             <h1 className='font-bold text-primary text-[2.2rem] md:text-[2.5rem] '>Cuenta Ahorros Digital</h1>
             <h2 className='font-semibold w-3/4 ' >Abre tu cuenta de ahorros, sin cuota de manejo, retiros, transferencias de forma gratuita y más</h2>
-            <Link href="/consulta-afiliacion" data-testid="consulta_afiliacion" className='rounded-lg text-white bg-primary inline-block px-6 py-3 ' >
+            <Link href="/afiliacion" data-testid="afiliacion" className='rounded-lg text-white bg-primary inline-block px-6 py-3 ' >
                 Iniciar solicitud
             </Link>
         </div>

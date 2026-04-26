@@ -1,8 +1,8 @@
 import { useState } from "react"
 import { MinCharacthers } from "@/utils/functions";
-import { useGlobalUI } from "@/shared/context/GlobalUIContext";
 import { Fetch } from "@/shared/fetch/Fetch";
 import { consult, consultResponse } from "../type/consult";
+import { useGlobalUI } from "@/shared/hooks/useGlobalUI";
 
 export const useConsult = () => {
 
