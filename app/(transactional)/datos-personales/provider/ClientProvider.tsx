@@ -1,22 +1,32 @@
+'use client';
 import { useForm, FormProvider } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { formSchema, FormValues } from "./client.schema";
-import { DEFAULT_VALUES } from "./client.data";
-import { ClientProviderProps } from "./client.type";
+import { useAppStore } from "../../store/client";
+import { ReactNode } from "react";
 
-export function FormContextProvider({ children, onSubmit }: ClientProviderProps) {
+type ClientProviderProps = {
+  children: ReactNode;
+};
+
+export function FormContextProvider({ children }: ClientProviderProps) {
+
+  const basicData = useAppStore((state) => state.datosBasicos);
+  const financialData = useAppStore((state) => state.datosFinancieros);
+  const terminos = useAppStore((state) => state.terminos);
+
   const methods = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-        ...DEFAULT_VALUES
+      ...basicData,
+      ...financialData,
+      terminos
     },
   });
 
   return (
     <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(onSubmit)}>
-        {children}
-      </form>
+      {children}
     </FormProvider>
   );
 }
