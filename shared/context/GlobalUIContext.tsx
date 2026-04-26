@@ -16,7 +16,7 @@ export function GlobalUIProvider({ children }: providerProps) {
 
     return (
         <GlobalUi.Provider value={{ setIsLoading, setToastMessage }}>
-            <div>
+            <>
                 {children}
                 <ToastContainer
                     position="top-left"
@@ -41,7 +41,7 @@ export function GlobalUIProvider({ children }: providerProps) {
                         ) : null
                 }
 
-            </div>
+            </>
 
         </GlobalUi.Provider>
     )
