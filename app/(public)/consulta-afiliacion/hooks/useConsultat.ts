@@ -22,6 +22,7 @@ export const useConsult = () => {
                 params
             );
             setData(data);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
             setToastMessage(error.message, 'error')
         } finally {
