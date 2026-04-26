@@ -6,3 +6,9 @@ export const Capitalize = (word: string): string => {
 export const MinCharacthers = (minNumber: number): string => {
     return `Minino ${minNumber} caracteres`;
 }
+
+
+export const formatCurrency = (value: string): string => {
+    if(!value) return value;
+    return `$${Number(value).toLocaleString('es-CO')}`;
+};

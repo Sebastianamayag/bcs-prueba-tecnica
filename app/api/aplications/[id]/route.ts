@@ -33,7 +33,6 @@ export async function PATCH(request: Request) {
     const { searchParams } = new URL(request.url);
     const scenario = searchParams.get('scenario');
     const { numero_afiliacion, data } = await request.json();
-    console.log(numero_afiliacion, data, scenario)
 
     if (scenario === 'success' && numero_afiliacion && data) {
         return NextResponse.json({
