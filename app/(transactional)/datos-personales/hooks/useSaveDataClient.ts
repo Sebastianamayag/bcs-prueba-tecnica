@@ -48,7 +48,7 @@ export const useSaveDataClient = () => {
                 {
                     method: 'PATCH',
                     body: JSON.stringify({
-                        numero_afiliacion: 'numero_afiliacion',
+                        numero_afiliacion: numero_afiliacion,
                         data: {
                             datosBasicos,
                             datosFinancieros,
