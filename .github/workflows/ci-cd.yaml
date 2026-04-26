@@ -49,7 +49,7 @@ jobs:
         run: docker run -d -p 3000:3000 --name bcs bcs
       - name: Check app is running
         run: |
-              sleep 10
+              sleep 30
               curl -f http://localhost:3000 || exit 1
       - name: Stop container
         run: docker stop bcs
