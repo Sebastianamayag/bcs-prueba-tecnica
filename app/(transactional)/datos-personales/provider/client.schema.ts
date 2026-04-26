@@ -1,6 +1,6 @@
 import { ERROR_MESSAGES } from "@/shared/constants/errorMessages";
 import { MinCharacthers } from "@/utils/functions";
-import { z } from "zod";
+import { refine, z } from "zod";
 
 export const basicSchema = z.object({
   numero_documento: z.string().min(5, MinCharacthers(5)),
@@ -19,7 +19,8 @@ export const financialSchema = z.object({
 });
 
 export const termsSchema = z.object({
-  terminos: z.string().min(1, ERROR_MESSAGES.required),
+  terminos: z.boolean().
+    refine((val) => val, ERROR_MESSAGES.required)
 });
 
 export const formSchema = z.object({

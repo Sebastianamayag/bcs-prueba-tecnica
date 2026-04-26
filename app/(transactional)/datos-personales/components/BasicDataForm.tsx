@@ -24,6 +24,7 @@ export const BasicDataForm = () => {
               <InputForm control={control} label={"Segundo Apellido"} id={"segundo_apellido"} name={"segundo_apellido"} />
             </div>
           </div>
+          
         </Card>
     </div>
   )
