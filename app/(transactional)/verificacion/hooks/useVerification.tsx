@@ -19,31 +19,7 @@ export const useVerification = () => {
 
     const route = useRouter();
 
-    const handleGetSimulation = async() => {
-        try {
-            setIsLoading(true);
-
-            const resp : SimulateResponse = await Fetch(
-                `/api/aplications/${numero_afiliacion}/simulate`,
-                process.env.NEXT_PUBLIC_API_POST_APPLICATIONS_SIMULATE ?? '',
-                undefined,
-                {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        numero_afiliacion
-                    }),
-                }
-            );
-            setData(resp.data)
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        } catch (error: any) {
-            setToastMessage(error.message, 'error')
-        } finally {
-            setIsLoading(false);
-        }
-    };
-
-    const handleEndAfiliation = async() => {
+    const handleEndAfiliation = async () => {
         try {
             setIsLoading(true);
 
@@ -70,6 +46,29 @@ export const useVerification = () => {
     }
 
     useEffect(() => {
+        const handleGetSimulation = async () => {
+            try {
+                setIsLoading(true);
+
+                const resp: SimulateResponse = await Fetch(
+                    `/api/aplications/${numero_afiliacion}/simulate`,
+                    process.env.NEXT_PUBLIC_API_POST_APPLICATIONS_SIMULATE ?? '',
+                    undefined,
+                    {
+                        method: 'POST',
+                        body: JSON.stringify({
+                            numero_afiliacion
+                        }),
+                    }
+                );
+                setData(resp.data)
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            } catch (error: any) {
+                setToastMessage(error.message, 'error')
+            } finally {
+                setIsLoading(false);
+            }
+        };
         handleGetSimulation();
     }, []);
 
