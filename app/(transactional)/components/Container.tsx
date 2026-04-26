@@ -1,5 +1,5 @@
 'use client';
-import { Stepper } from '@/shared/components/Stepper/Stepper';
+import { Stepper } from '@/shared/components/Stepper/Stepp';
 import { ReactNode } from 'react';
 import { useAppStore } from '../store/client';
 
