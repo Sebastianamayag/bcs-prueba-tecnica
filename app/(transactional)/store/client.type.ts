@@ -24,4 +24,8 @@ export interface ClientState {
   setDatosFinancieros: (data: Record<string, unknown>) => void;
   setTerminos: (data: string) => void;
   reset: () => void;
+  numero_afiliacion: string;
+  tipo_flujo: string;
+  setNumeroFlujo: (data: string) => void;
+  setTipoCliente: (data: string) => void;
 }

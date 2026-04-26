@@ -1,6 +1,6 @@
 import { APP_STORE } from '@/shared/constants/keys'
 import { create } from 'zustand'
-import { persist } from 'zustand/middleware'
+import { createJSONStorage, persist } from 'zustand/middleware'
 import { ClientState } from './client.type'
 import { initialState } from './client.data'
 
@@ -17,10 +17,13 @@ export const useAppStore = create<ClientState>()(
         datosFinancieros: { ...state.datosFinancieros, ...data }
       })),
       setTerminos : (data) => set({ terminos: data }),
+      setNumeroFlujo : (data) => set({ numero_afiliacion: data }),
+      setTipoCliente : (data) => set({ tipo_flujo: data }),
       reset: () => set(initialState),
     }),
     {
       name: APP_STORE,
+      storage: createJSONStorage(()=> sessionStorage),
       partialize: (state) => ({ 
         latsStepComppleted: state.latsStepComppleted,
         datosBasicos: state.datosBasicos,
