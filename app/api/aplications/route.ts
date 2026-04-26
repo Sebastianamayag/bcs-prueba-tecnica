@@ -34,7 +34,6 @@ export async function GET(request: Request) {
     const { searchParams } = new URL(request.url)
     const scenario = searchParams.get('scenario');
     const documentNumber = searchParams.get('numero_documento');
-
     if (scenario === 'success') {
         return NextResponse.json({
             status: 200,

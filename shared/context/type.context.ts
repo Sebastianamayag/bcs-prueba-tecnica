@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-export type toastType = 'success' | 'warn' 
+export type toastType = 'success' | 'error' 
 
 export interface globalUIContextType {
   setIsLoading: (value: boolean) => void;

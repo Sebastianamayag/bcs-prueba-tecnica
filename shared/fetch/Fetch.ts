@@ -1,5 +1,12 @@
-export const  Fetch = async <T>(url: string, options?: RequestInit): Promise<T> => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${url}`, {
+export const  Fetch = async <T>(url: string, env: string, params?: Record<string,string> , options?: RequestInit): Promise<T> => {
+  
+  
+  const newParams = new URLSearchParams({
+    scenario: env,
+    ...(params ?? {}),
+  });
+
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${url}?${newParams}`, {
     ...options,
     headers: {
       "Content-Type": "application/json",
