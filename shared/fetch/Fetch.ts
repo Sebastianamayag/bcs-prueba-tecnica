@@ -1,8 +1,8 @@
-export const  Fetch = async <T>(url: string, env: string, params?: Record<string,string | number | object> , options?: RequestInit): Promise<T> => {
+export const  Fetch = async <T>(url: string, env?: string, params?: Record<string,string | number | object> , options?: RequestInit): Promise<T> => {
   
   
   const newParams = new URLSearchParams({
-    scenario: env,
+    ...(env ? { scenario: env} : {}),
     ...(params ?? {}),
   });
 

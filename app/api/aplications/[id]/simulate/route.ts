@@ -1,9 +1,7 @@
 import { NextResponse } from 'next/server'
 
 export async function POST(request: Request) {
-    const { searchParams } = new URL(request.url);
-    const scenario = searchParams.get('scenario');
-    const { numero_afiliacion } = await request.json();
+    const { numero_afiliacion, scenario } = await request.json();
 
     if (scenario === 'success' && numero_afiliacion) {
         return NextResponse.json({

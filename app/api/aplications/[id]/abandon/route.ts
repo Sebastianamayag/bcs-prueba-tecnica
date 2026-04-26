@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server'
 export async function POST(request: Request) {
     const { scenario, numero_afiliacion, motivo } = await request.json()
 
-    if (scenario === 'success' && numero_afiliacion) {
+    if (scenario === 'success' && numero_afiliacion && motivo) {
         return NextResponse.json({
             status: 200,
             message: 'Afiliación abandonada correctamente',

@@ -25,12 +25,13 @@ export const useVerification = () => {
 
             await Fetch(
                 `/api/aplications/${numero_afiliacion}/finalize`,
-                process.env.NEXT_PUBLIC_API_POST_APPLICATIONS_FINALIZE ?? '',
+                undefined,
                 undefined,
                 {
                     method: 'POST',
                     body: JSON.stringify({
-                        numero_afiliacion
+                        numero_afiliacion,
+                        scenario: process.env.NEXT_PUBLIC_API_POST_APPLICATIONS_FINALIZE ?? ''
                     }),
                 }
             );
@@ -52,12 +53,13 @@ export const useVerification = () => {
 
                 const resp: SimulateResponse = await Fetch(
                     `/api/aplications/${numero_afiliacion}/simulate`,
-                    process.env.NEXT_PUBLIC_API_POST_APPLICATIONS_SIMULATE ?? '',
+                    undefined,
                     undefined,
                     {
                         method: 'POST',
                         body: JSON.stringify({
-                            numero_afiliacion
+                            numero_afiliacion,
+                            scenario: process.env.NEXT_PUBLIC_API_POST_APPLICATIONS_SIMULATE ?? ''
                         }),
                     }
                 );
