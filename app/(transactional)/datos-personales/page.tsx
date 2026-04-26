@@ -1,5 +1,6 @@
 'use client';
 import { BasicDataForm } from "./components/BasicDataForm";
+import { FinancialDataForm } from "./components/FinancialDataForm";
 import { FormContextProvider } from "./provider/ClientProvider";
 
 export default function Page() {
@@ -7,6 +8,7 @@ export default function Page() {
         <FormContextProvider>
             <form>
                 <BasicDataForm />
+                <FinancialDataForm />
             </form>
         </FormContextProvider>
     );
