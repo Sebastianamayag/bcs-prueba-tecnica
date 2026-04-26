@@ -1,4 +1,4 @@
-interface basicData{
+export interface basicData{
     numero_documento: string;
     tipo_de_documento: string;
     primer_nombre: string;
@@ -7,7 +7,7 @@ interface basicData{
     segundo_apellido: string;
 }
 
-interface financialData{
+export interface financialData{
     cargo: string;
     ingresos: string;
     egresos: string;

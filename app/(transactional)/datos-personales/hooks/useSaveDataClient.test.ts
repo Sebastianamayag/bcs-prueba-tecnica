@@ -23,6 +23,7 @@ const mockSetDatosFinancieros = jest.fn()
 const mockSetTerminos = jest.fn()
 const mockSetIsLoading = jest.fn()
 const mockSetToastMessage = jest.fn()
+const mockSetLastStep = jest.fn()
 const mockPush = jest.fn()
 
 const mockValues = {
@@ -56,6 +57,7 @@ describe('useSaveDataClient', () => {
             setDatosBasicos: mockSetDatosBasicos,
             setDatosFinancieros: mockSetDatosFinancieros,
             setTerminos: mockSetTerminos,
+            setLastStep: mockSetLastStep,
         });
 
         (useGlobalUI as jest.Mock).mockReturnValue({
@@ -106,6 +108,14 @@ describe('useSaveDataClient', () => {
             await result.current.handleSubmit({ preventDefault: jest.fn() } as any);
         });
         expect(mockPush).toHaveBeenCalledWith('/verificacion');
+    })
+
+    it('check change setLastStep', async () => {
+        const { result } = renderHook(() => useSaveDataClient());
+        await act(async () => {
+            await result.current.handleSubmit({ preventDefault: jest.fn() } as any);
+        });
+        expect(mockSetLastStep).toHaveBeenCalledWith(2);
     })
 
     it('show toast', async () => {

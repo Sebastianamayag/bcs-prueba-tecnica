@@ -16,6 +16,6 @@ export const initialState = {
     patrimonio: '',
   },
   terminos: false,
-  numero_afiliacion: '',
+  numero_afiliacion: '1',
   tipo_flujo: ''
 }

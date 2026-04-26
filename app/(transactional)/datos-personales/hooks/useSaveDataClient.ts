@@ -9,7 +9,7 @@ export const useSaveDataClient = () => {
     const { isValid } = formState;
     const values = watch();
 
-    const { setDatosBasicos, setDatosFinancieros, setTerminos } = useAppStore();
+    const { setDatosBasicos, setDatosFinancieros, setTerminos, setLastStep, numero_afiliacion } = useAppStore();
     const { setIsLoading, setToastMessage } = useGlobalUI();
     const router = useRouter();
     const parseData = () => {
@@ -42,13 +42,13 @@ export const useSaveDataClient = () => {
             setDatosFinancieros(datosFinancieros);
             setTerminos(terminos);
             await Fetch(
-                `/api/aplications/${1}`,
+                `/api/aplications/${numero_afiliacion}`,
                 process.env.NEXT_PUBLIC_API_PATCH_APPLICATIONS ?? '',
                 undefined,
                 {
                     method: 'PATCH',
                     body: JSON.stringify({
-                        numero_afiliacion: '1',
+                        numero_afiliacion: 'numero_afiliacion',
                         data: {
                             datosBasicos,
                             datosFinancieros,
@@ -57,6 +57,7 @@ export const useSaveDataClient = () => {
                     }),
                 }
             );
+            setLastStep(2);
             router.push('/verificacion');
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
