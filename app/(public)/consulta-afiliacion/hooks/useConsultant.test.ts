@@ -44,7 +44,7 @@ describe('test useConsult', () => {
         const { result } = renderHook(() => useConsult());
         expect(result.current.documentNumber).toBe('');
         expect(result.current.error).toBeNull();
-        expect(result.current.data).toEqual([]);
+        expect(result.current.data).toBeNull();
         expect(result.current.status).toBe('');
     });
 

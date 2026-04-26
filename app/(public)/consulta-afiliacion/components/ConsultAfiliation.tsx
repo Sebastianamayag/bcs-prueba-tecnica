@@ -22,13 +22,14 @@ export const ConsultAfiliation = () => {
         clearFilter, 
         filterData, 
     } = useConsult();
+
     return (
         <section data-testid='consultant' className="space-y-5" >
             <div>
                 <h1 className='font-bold text-primary text-[2.2rem] md:text-[2.5rem]'>Detalle de la solicitud</h1>
                 <h2 className='font-semibold w-3/4'>Para consultar ingrese el número de cédula.</h2>
             </div>
-            <div data-testid='search' className="bg-white p-5 shadow-lg rounded-lg flex flex-col 2xl:flex-row gap-[10px] lg:m-x-[10rem] ">
+            <div data-testid='search' className="bg-white p-5 shadow-lg rounded-lg flex flex-col justify-between 2xl:flex-row gap-[10px] lg:m-x-[10rem] ">
                 <div className="flex flex-col gap-2 md:flex-row">
                     <Input
                         hasError={error !== null}
