@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Stepper } from './Stepp';
+import { Stepper } from './Stepper';
 
 jest.mock('next/link', () => {
   const MockLink = ({ children, href }: { children: React.ReactNode, href: string }) => <a href={href}>{children}</a>
