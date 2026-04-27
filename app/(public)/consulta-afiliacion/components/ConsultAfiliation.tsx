@@ -5,7 +5,7 @@ import { useConsult } from "../hooks/useConsultat"
 import { Button } from "@/shared/components/Button/Button";
 import { Search } from 'lucide-react'
 import { Table } from "./Table";
-import { INPUTOPTIONS } from "../constants/input";
+import { INPUT_OPTIONS } from "../constants/input";
 import { Select } from "@/shared/components/Select/Select";
 
 export const ConsultAfiliation = () => {
@@ -57,7 +57,7 @@ export const ConsultAfiliation = () => {
                         (
                             <div className="flex flex-col gap-2 md:flex-row">
                                 <Select
-                                    options={INPUTOPTIONS}
+                                    options={INPUT_OPTIONS}
                                     placeHolder="Filtrar por estado"
                                     onChange={(e) => {
                                         setStatus(e.target.value);

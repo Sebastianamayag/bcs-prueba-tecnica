@@ -9,8 +9,22 @@ jest.mock('react-hook-form', () => ({
   ...jest.requireActual('react-hook-form'),
   useFormContext: () => ({
     control: {}
-  })
+  }),
+  Controller: ({ render }: any) =>
+    render({
+      field: {
+        value: '',
+        onChange: jest.fn(),
+        onBlur: jest.fn(),
+        name: '',
+        ref: jest.fn(),
+      },
+      fieldState: {
+        error: undefined,
+      },
+    }),
 }));
+
 
 
 describe('test <BasicDataForm/> component', () => {

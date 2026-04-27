@@ -11,8 +11,10 @@ export const useAfiliation = () => {
     const { setIsLoading, setToastMessage } = useGlobalUI();
     const router = useRouter();
     const { reset, setNumeroFlujo, numero_afiliacion, setDatosBasicos } = useAppStore();
-
+    const [flow, setFlow] = useState<string>('');
     const [showModalResume, setShowModalResume] = useState(false);
+    const [value, setValue] = useState('');
+
 
     const handleCreateAfiliation = async () => {
         try {
@@ -24,7 +26,7 @@ export const useAfiliation = () => {
                 {
                     method: 'POST',
                     body: JSON.stringify({
-                        numero_documento: '1',
+                        numero_documento: value,
                         scenario: process.env.NEXT_PUBLIC_API_POST_APPLICATIONS_ABANDON ?? ''
                     }),
                 }
@@ -34,6 +36,7 @@ export const useAfiliation = () => {
                 numero_documento: '',
                 tipo_de_documento: '',
             })
+            router.push('/datos-personales');
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
             setToastMessage(error.message, 'error')
@@ -44,16 +47,17 @@ export const useAfiliation = () => {
     }
 
     const handleAbandon = async (reason: string) => {
+        const numeroAfiliacion = flow !== 'auto' ? value : numero_afiliacion;
         try {
             setIsLoading(true);
             await Fetch(
-                `/api/aplications/${numero_afiliacion}/abandon`,
+                `/api/aplications/${numeroAfiliacion}/abandon`,
                 undefined,
                 undefined,
                 {
                     method: 'POST',
                     body: JSON.stringify({
-                        numero_afiliacion,
+                        numero_afiliacion: numeroAfiliacion,
                         motivo: reason,
                         scenario: process.env.NEXT_PUBLIC_API_POST_APPLICATIONS_ABANDON ?? ''
                     }),
@@ -77,11 +81,22 @@ export const useAfiliation = () => {
     } 
 
 
+    const handleCheckAfiliation = () => {
+        if(numero_afiliacion) return setShowModalResume(true);
+        handleCreateAfiliation()
+    }
+
+
 
     return {
         handleAbandon,
         handleCreateAfiliation,
         showModalResume,
         handleResume,
+        handleCheckAfiliation,
+        flow,
+        setFlow,
+        value,
+        setValue,
     }
 }
