@@ -77,11 +77,18 @@ export const useAfiliation = () => {
     } 
 
 
+    const handleCheckAfiliation = () => {
+        if(numero_afiliacion) return setShowModalResume(true);
+        handleCreateAfiliation()
+    }
+
+
 
     return {
         handleAbandon,
         handleCreateAfiliation,
         showModalResume,
         handleResume,
+        handleCheckAfiliation,
     }
 }
