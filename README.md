@@ -8,12 +8,12 @@ El proyecto implementa una arquitectura **Feature-Based (orientada a dominio)** 
 
 Cada feature contiene sus propios recursos organizados así:
 
-feature/
-├── components/     # Componentes de la feature. En esta carpeta se organiza todo basado en los componentes
-├── constants/      # Constantes y datos estáticos
-├── hooks/          # Hooks propios
-├── type/           # Tipos TypeScript
-└── page.tsx        # Página de Next.js
+**feature/**
+components/     # Componentes de la feature. En esta carpeta se organiza todo basado en los componentes
+constants/      # Constantes y datos estáticos
+hooks/          # Hooks propios
+type/           # Tipos TypeScript
+page.tsx        # Página de Next.js
 
 De esta forma es mucho más facil y rápido escalar, modificar o eliminar cosas innecesarias. El codigo se mantiene limpio y se evitan
 dependencias cíclicas.
