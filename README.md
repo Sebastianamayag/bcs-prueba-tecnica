@@ -8,7 +8,7 @@ El proyecto implementa una arquitectura **Feature-Based (orientada a dominio)** 
 
 Cada feature contiene sus propios recursos organizados así:
 
-feature/
+**feature/**
 components/     # Componentes de la feature. En esta carpeta se organiza todo basado en los componentes
 constants/      # Constantes y datos estáticos
 hooks/          # Hooks propios
