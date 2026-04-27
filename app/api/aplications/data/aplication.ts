@@ -16,5 +16,29 @@ export const APLICATIONS: aplication[] = [
     estado: 'Rechazada',
     createdAt: '2026-04-23T09:00:00',
     updatedAt: '2026-04-23T09:10:00'
-  }
+  },
+  {
+    numero_afiliacion: '3',
+    nombre: 'Juan Pérez',
+    numero_documento: '123456789',
+    estado: 'En revision',
+    createdAt: '2026-04-25T10:00:00',
+    updatedAt: '2026-04-25T10:05:00'
+  },
+  {
+    numero_afiliacion: '4',
+    nombre: 'Ana Gómez',
+    numero_documento: '987654321',
+    estado: 'Aprovada',
+    createdAt: '2026-04-24T09:00:00',
+    updatedAt: '2026-04-24T09:10:00'
+  },
+  {
+    numero_afiliacion: '5',
+    nombre: 'Juan Pérez',
+    numero_documento: '123456789',
+    estado: 'Aprovada',
+    createdAt: '2026-04-26T10:00:00',
+    updatedAt: '2026-04-26T10:05:00'
+  },
 ]

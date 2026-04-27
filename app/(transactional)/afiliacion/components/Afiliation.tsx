@@ -77,8 +77,8 @@ export const Afiliation = () => {
                   <div className="border-t border-gray-100 pt-4">
                     <Input
                       id="flow-input"
-                      label={flow === 'auto' ? 'Número de documento' : 'Número de folio'}
-                      placeholder={flow === 'auto' ? 'Ingresa tu número de documento' : 'Ingresa tu número de folio'}
+                      label="Número de documento"
+                      placeholder='Ingresa tu número de documento'
                       value={value}
                       onChange={(e) => setValue(e.target.value)}
                       hasError={false} 
