@@ -33,7 +33,7 @@ export const useAfiliation = () => {
             );
             setNumeroFlujo(resp.data.numero_afiliacion);
             setDatosBasicos({
-                numero_documento: '',
+                numero_documento: value,
                 tipo_de_documento: '',
             })
             router.push('/datos-personales');
@@ -47,17 +47,16 @@ export const useAfiliation = () => {
     }
 
     const handleAbandon = async (reason: string) => {
-        const numeroAfiliacion = flow !== 'auto' ? value : numero_afiliacion;
         try {
             setIsLoading(true);
             await Fetch(
-                `/api/aplications/${numeroAfiliacion}/abandon`,
+                `/api/aplications/${numero_afiliacion}/abandon`,
                 undefined,
                 undefined,
                 {
                     method: 'POST',
                     body: JSON.stringify({
-                        numero_afiliacion: numeroAfiliacion,
+                        numero_afiliacion,
                         motivo: reason,
                         scenario: process.env.NEXT_PUBLIC_API_POST_APPLICATIONS_ABANDON ?? ''
                     }),
