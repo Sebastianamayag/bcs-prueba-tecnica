@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 
-import './globals.css'
+import "./globals.css";
 import { GlobalUIProvider } from "@/shared/context/GlobalUIContext";
 
 export const metadata: Metadata = {
-  title: "Fundación Banco Caja Social",
+  title: "Tu banco amigo",
   description: "Encuentra tu solución financiera",
 };
 
@@ -14,13 +14,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="es"
-    >
+    <html lang="es">
       <body>
-        <GlobalUIProvider>
-          {children}
-        </GlobalUIProvider>
+        <GlobalUIProvider>{children}</GlobalUIProvider>
       </body>
     </html>
   );
